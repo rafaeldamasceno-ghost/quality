@@ -16,13 +16,12 @@ Funcionalidade: Busca no Banco de Questões
         E verifico se existe controle de paginação  
         Então realizo a busca
 
-    Cenário: Não exibir controle de paginação
+    Cenário: Busca de questões por usuário
         Dado que navego para a página de busca do banco de questões
-        E digito 'Arguments' no campo de busca
-        E seleciono Question no campo de seleção
+        E digito 'Karen' no campo de busca
+        E seleciono 'Users' no campo de seleção
         Quando clico no botão de buscar
-        E verifico se o resultado é menor que 26
-        Então o controlador de páginas não deverá aparecer
+        Então visualizo as questões criadas por aquele usuário
 
     
 
