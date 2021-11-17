@@ -1,7 +1,96 @@
 # **Quality**
-> Quality é um projeto acadêmico, do [Centro Universitário UniBH](https://unibh.br/) em conjunto com a [CI&T](https://ciandt.com/br/pt-br/home) cujo objetivo final é avaliar o site [opentdb](https://opentdb.com), utilizando conceitos de qualidade, abordados na [documentação]() que disponibiliza os requisitos e criterios de avaliação.   
+> Quality é um projeto acadêmico, do [Centro Universitário UniBH](https://unibh.br/) em conjunto com a [CI&T](https://ciandt.com/br/pt-br/home), cujo objetivo final é avaliar o site [opentdb](https://opentdb.com), realizando a criação de cenários de teste utilizando a linguagem Gherkin, e testes propriamente ditos. 
 
-## Estrutura do projeto: 
+## **Instalação e pré-requisitos**
+
+💻 Requisitos:
+* IDE(Integrated Development Environment): [Netbeans](https://netbeans.apache.org/download/index.html), ou [Eclipse](https://www.eclipse.org/downloads/), ou [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/download/);
+* [JDK(Java Development Kit)](https://www.oracle.com/java/technologies/downloads/);   
+* [Git](https://git-scm.com/downloads).
+* Conta no [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)
+
+Com todos os requisitos preenchidos, vamos para a criação do ambiente local, onde ficarão os arquivos do projeto.
+
+### Baixando o projeto:
+
+1. Clique no botão **fork**, localizado no canto superior direito. Fork nada mais é do que uma cópia atual do repositório;
+2. Depois de realizar o fork, uma cópia do projeto ficará disponível em seus repositorios. Copie a URL do repositório e guarde-a pois precisaremos dela mais tarde;
+3. Inicie o terminal do gitbash ou um terminal de sua preferência;
+  - Navegue até a pasta que você deseja que os arquivos do projeto sejam armazenados.
+4. Comandos:
+ - Crie um novo repositório git, com o seguinte comando: 
+```
+git init
+```
+Usaremos esse repositório para receber um repositório remoto existente.
+
+  - Defina e relacione um repositório remoto, digitando o seguinte comando: 
+```
+git remote add origin https://github.com/QualitySquad/quality
+```
+E para finalizar baixe o conteúdo disponível na url que você informou no passo anterior, com o comando:
+```
+git pull origin master
+```
+Pronto! A partir deste momento todos os arquivos estarão na pasta que você definiu anteriormente.
+
+## Executando os testes:
+
+Temos 3 casos de testes, relacionados a funcionalidade **Busca no Banco de Questões** sendo eles: 
+
+1. ListQuestionsText:
+```
+Cenário: Busca por questão inexistente
+        Dado que navego para a página de busca do banco de questões
+        E digito 'Science: Computers' no campo de Busca
+        Quando clico no botão de buscar
+        Então visualizo uma mensagem de erro com o texto 'No questions found.'
+```
+Como o cenário acima, disponível na linguagem Gherkin já descreve, o teste é responsável por verificar um comportamento do sistema, caso procurassemos por alguma questão que por algum motivo não foi localizada no banco de dados. O retorno esperado desse teste é um true, do tipo boolean. 
+
+Para executa-lo basta acessar o arquivo ListQuestionsText, disponível no caminho: src/test/java e executar(botão direito, run test).
+
+https://user-images.githubusercontent.com/71859464/142241925-4f14422d-f524-4be8-ac1d-fc2da2a9782f.mp4
+
+2. SearchQuestionTest:
+```
+Cenário: Listagem de questões
+        Dado que navego para a página de busca do banco de questões
+        E digito 'Science: Computers' no campo de busca
+        E seleciono Category no campo de seleção  
+        Quando clico no botão de buscar
+        E verifico se há 25 questões
+        E verifico se existe controle de paginação  
+        Então realizo a busca
+```
+Como o cenário acima, disponível na linguagem Gherkin já descreve, o teste é responsável por verificar se o controle de paginação existe. O retorno esperado desse teste é do tipo string, com o texto "No questions found.". 
+
+Para executa-lo basta acessar o arquivo SearchQuestionTest, disponível no caminho: src/test/java e executar(botão direito, run test).
+
+
+https://user-images.githubusercontent.com/71859464/142242429-1a9ad498-80c4-48ae-a60f-f1e626f844ee.mp4
+
+
+
+3. SearchQuestionUserTest:
+```
+Cenário: Busca de questões por usuário
+        Dado que navego para a página de busca do banco de questões
+        E digito 'Karen' no campo de busca
+        E seleciono 'Users' no campo de seleção
+        Quando clico no botão de buscar
+        Então visualizo as questões criadas por aquele usuário
+```
+Como o cenário acima, disponível na linguagem Gherkin já descreve, o teste é responsável por verificar as questões criadas por determinado usuário. O retorno esperado desse teste é um true, do tipo boolean. 
+
+Para executa-lo basta acessar o arquivo SearchQuestionUserTest, disponível no caminho: src/test/java e executar(botão direito, run test).
+
+
+https://user-images.githubusercontent.com/71859464/142242725-fa2b280b-4e4b-4a2f-8ae4-a4b52836f24d.mp4
+
+
+
+## Tecnologias utilizadas no projeto: 
 Para atender aos requisitos disponibilizados na documentação, realizamos a combinação de ferramentas e tecnologias que em seu resultado final concederam economia de tempo no desenvolvimento e confiabilidade na entrega final.
 
 ### [Maven](https://maven.apache.org/):
@@ -17,28 +106,3 @@ Podemos dizer que neste projeto, ele é a dupla perfeita do Selenium, pois é re
 
 ### [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/):
 Não poderiamos falar de qualidade sem mencionar o Selenium, até por que a etapa de testes é imprescindível, e por que não automatiza-los? Realizar testes de forma manual gastará muito tempo e dinheiro, e é nesse momento que a decisão de utilizar o Selenium foi realizada. O Selenium é um conjunto de ferramentas de código aberto multiplataforma, usado para testar aplicações web pelo browser de forma automatizada. Ele suporta diversas linguagens e navegadores, e é responsável pelas ações que serão realizadas dentro dos navegadores. Para que tudo isso seja possível, Selenium WebDriver utiliza o driver do navegador para a automação dos testes e isso permite manipular as ações que serão realizadas em cada navegador, aplicando ao driver especifico, eliminando problemas como compatibilidade, por exemplo. Cada navegador possui um driver, e através deste driver o Selenium WebDriver faz com que os nossos testes, sejam cada vez mais eficientes, simulando um acesso humano e o mais "natural" possível. [Entenda mais sobre o Selenium WebDriver aqui]()
-
-## **Clonando o projeto**
-💻 Requisitos:
-* IDE(Integrated Development Environment): [Netbeans](https://netbeans.apache.org/download/index.html), [Eclipse](https://www.eclipse.org/downloads/) ou [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/download/);
-* [JDK(Java Development Kit)](https://www.oracle.com/java/technologies/downloads/);   
-* [Git](https://git-scm.com/downloads).
-
-### Criando ambiente local:
-Inicie o terminal do gitbash ou o terminal de sua preferência. Navegue até a pasta que você deseja que os arquivos do projeto sejam armazenados. Execute o seguinte comando para criar um repositório git:
-```
-git init
-```
-Para definir um repositório remoto, digite o seguinte comando: 
-```
-git remote add origin https://github.com/QualitySquad/selenium
-```
-E para finalizar digite o comando:
-```
-git pull origin master
-```
-Pronto! A partir deste momento todos os arquivos estarão na pasta que você definiu anteriormente.
-
-## Casos de teste: 
-Entendendo os conceitos iniciais, e com o ambiente de desenvolvimento pronto, vamos entender os casos de teste e como eles funcionam na prática.
-
