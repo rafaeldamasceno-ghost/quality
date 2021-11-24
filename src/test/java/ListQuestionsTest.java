@@ -1,3 +1,5 @@
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,10 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+
 import static org.junit.Assert.*;
 import java.io.File;
 
@@ -50,11 +49,25 @@ public class ListQuestionsTest {
     /**
      * Test of searchQuestion method, of class SearchQuestion.
      */
+
+    @Attachment
+    public String makeAttach(){
+        return "Página possui controle de paginação";
+    }
+
     @Test
+    @DisplayName("Teste Controle de páginação")
+    @Description("Verifica se a página possui controle de paginação")
     public void testPesquisaQuestion() {
         list.listQuestions(driver);
         assertEquals(true, list.verificaControlePaginacao(driver));
-        assertEquals(25, list.verificaNumLinhas(driver));
+        makeAttach();
     }
 
+    @Test
+    @DisplayName("Teste Listagem de questões por página")
+    @Description("Verifica se a página mostra no máximo 25 questões por página")
+    public void testVerificaLinhas() {
+        assertEquals(25, list.verificaNumLinhas(driver));
+    }
 }

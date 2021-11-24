@@ -1,3 +1,5 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -42,6 +44,8 @@ public class SearchQuestionTest {
      * Test of searchQuestion method, of class SearchQuestion.
      */
     @Test
+    @DisplayName("Teste Busca por questão inexistente")
+    @Description("Faz a busca por uma questão inexistente")
     public void testPesquisaQuestion() {
         search.searchQuestion(driver);
         assertEquals("No questions found.", search.retornaMensagem(driver));
