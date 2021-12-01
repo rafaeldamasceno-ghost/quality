@@ -88,6 +88,14 @@ Para executa-lo basta acessar o arquivo SearchQuestionUserTest, disponível no c
 
 https://user-images.githubusercontent.com/71859464/142242725-fa2b280b-4e4b-4a2f-8ae4-a4b52836f24d.mp4
 
+## Relatório de teste:
+
+Para melhor visualização dos resultados dos testes, adicionamos ao nosso projeto a biblioteca Allure que gera um formulário web com as informações dos testes, para executar, siga o passo abaixo:
+
+Comando:
+ - Abra seu terminal e digite o seguinte comando: 
+
+mvn allure:serve
 
 
 ## Tecnologias utilizadas no projeto: 
