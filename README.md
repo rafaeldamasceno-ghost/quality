@@ -109,3 +109,13 @@ Não poderiamos falar de qualidade sem mencionar o Selenium, até por que a etap
 
 ### [Allure](https://docs.qameta.io/allure/):
 Allure Framework é uma ferramenta de relatório de teste leve e flexível que não só mostra uma representação muito concisa do que foi testado em um formulário de relatório da web, mas permite que todos os participantes do processo de desenvolvimento extraiam o máximo de informações úteis da execução diária de testes. Com uma gama bem grande de opções e customizações para gerar relatórios, o framework facilita bastante a vida do qa/dev fazendo com que o resultado fique bem mais claro e entendivel. [Entenda mais sobre o Allure aqui]()
+
+## Equipe:  
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/matheusaugusto61"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/89614624?v=4" width="300px;" alt=""/><br /><sub><b>Matheus Augusto</b></sub></a><br />Backend Developer🚀<br /><a href="https://www.linkedin.com/in/matheus-augusto-2019/"><sub>Linkedin</sub></a></td>
+    <td align="center"><a href="https://github.com/israelgms"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/71859464?v=4" width="300px;" alt=""/><br /><sub><b>Israel Gomes</b></sub></a><br />Frontend Developer🚀<br /><a href="https://www.linkedin.com/in/israel-gomes-04407718b/"><sub>Linkedin</sub></a></td>
+    <td align="center"><a href="https://github.com/rafaeldamasceno-ghost"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/66209665?v=4" width="300px;" alt=""/><br /><sub><b>Rafael Damasceno</b></sub></a><br />Product Owner🚀<br /><a href="https://www.linkedin.com/in/rafael-pereira-damasceno/"><sub>Linkedin</sub></a></td>
+  </tr>
+</table>
