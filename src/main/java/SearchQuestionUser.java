@@ -10,7 +10,8 @@ public class SearchQuestionUser {
         query.sendKeys("Karen");
         Select option = new Select(driver.findElement(By.id("type")));
         option.selectByValue("User");
-        query.submit();
+        WebElement pesquisar = driver.findElement(By.className("fa-search"));
+        pesquisar.submit();
     }
 
     public boolean returnQuestions(WebDriver driver){
